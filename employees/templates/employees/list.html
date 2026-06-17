@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee List</title>
+</head>
+<body>
+
+<h2>Employee List</h2>
+
+<form method="GET">
+    <input type="text" name="search" placeholder="Search employee">
+
+    <select name="department">
+        <option value="">All Departments</option>
+
+        {% for dept in departments %}
+            <option value="{{ dept }}">
+                {{ dept }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Search</button>
+</form>
+
+<br>
+
+<table border="1">
+    <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Email</th>
+        <th>Hire Date</th>
+    </tr>
+
+    {% for employee in employees %}
+    <tr>
+        <td>{{ employee.employee_id }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.department }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.hire_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
